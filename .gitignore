@@ -1,0 +1,56 @@
+# ====================================
+# IGNORE EXTENSIONLESS EXECUTABLES
+# ====================================
+
+# Ignore only files without extensions inside src/
+src/**/[^./]*
+
+# Do NOT ignore any directories
+!src/**/
+
+# Do NOT ignore source code
+!src/**/*.c
+!src/**/*.h
+
+# ====================================
+# COMPILATION OUTPUT
+# ====================================
+*.o
+*.out
+*.a
+*.so
+*.exe
+*.dll
+
+# clang/gcc generated
+*.gch
+*.d
+*.su
+
+# ====================================
+# COMMON BUILD DIRECTORIES
+# ====================================
+bin/
+build/
+debug/
+release/
+dist/
+target/
+
+# ====================================
+# EDITOR / IDE
+# ====================================
+.vscode/
+.idea/
+*.code-workspace
+
+# ====================================
+# TEMPORARY / OS FILES
+# ====================================
+*.swp
+*.swo
+*~
+*.tmp
+*.log
+.DS_Store
+Thumbs.db
