@@ -1,6 +1,10 @@
+/* Diretiva de pré-processador */
 #include <stdio.h>
 
-int main() {
+/* Função principal */
+int main(void) {
+
+    /* Código */
     printf("Olá, mundo!\n");
     return 0;
 }
