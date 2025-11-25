@@ -63,6 +63,59 @@ sudo dnf install gcc make
 
 ## 🚀 Como Executar <a name="como-executar"></a>
 
+Siga os passos abaixo (exemplo baseado no Linux/Terminal):
+
+### 1. Clone o repositório
+
+```bash
+git clone https://github.com/0nF1REy/c-workspace.git
+cd c-workspace
+```
+
+### 2. Navegue até a pasta do exemplo
+
+Escolha o exercício que deseja testar dentro da pasta `src/`. Por exemplo, para executar o **Hello World**:
+
+```bash
+cd src/01_hello_world
+```
+
+### 3. Compile o código
+
+Utilize o `gcc` para transformar o código C em um executável. A flag `-o` define o nome do arquivo de saída (ex: `app`).
+
+```bash
+# Sintaxe: gcc nome_do_arquivo.c -o nome_do_executavel
+gcc hello_world.c -o app
+```
+
+> **Nota:** Se você não usar `-o nome`, o compilador gerará um arquivo padrão chamado `a.out`.
+
+### 4. Execute o programa
+
+Chame o executável criado no passo anterior:
+
+```bash
+./app
+```
+
+---
+
+### 💡 Exemplo Rápido (Calculadora)
+
+Para testar a calculadora aritmética (`07_arithmetic_calculator`), você faria:
+
+```bash
+# Entrar na pasta
+cd src/07_arithmetic_calculator/
+
+# Compilar
+gcc arithmetic_calculator.c -o calculadora
+
+# Executar
+./calculadora
+```
+
 ## 📚 Aplicações Incluídas <a name="aplicacoes-incluidas"></a>
 
 Breve descrição de cada pasta em `src/`:
