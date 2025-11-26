@@ -48,17 +48,28 @@ c-workspace/
 - Um compilador C compatível com POSIX, por exemplo `gcc` (GNU Compiler Collection).
 - Um terminal/ambiente Linux (as instruções abaixo usam bash).
 
-Instale no Debian/Ubuntu:
+Instale no **Debian/Ubuntu**:
 
 ```bash
-sudo apt update
-sudo apt install build-essential
+sudo apt update && sudo apt install build-essential
 ```
 
-No Fedora/CentOS:
+No **Fedora/CentOS**:
 
 ```bash
 sudo dnf install gcc make
+```
+
+No **Arch Linux/Manjaro**:
+
+```bash
+sudo pacman -S base-devel
+```
+
+No **openSUSE**:
+
+```bash
+sudo zypper install -t pattern devel_basis
 ```
 
 ## 🚀 Como Executar <a name="como-executar"></a>
@@ -130,9 +141,9 @@ Breve descrição de cada pasta em `src/`:
 
 ## 🔧 Tecnologias Utilizadas <a name="tecnologias-utilizadas"></a>
 
-- Linguagem: C (padrões C89/C99 compatíveis conforme o código).
-- Compilador: GNU GCC (sugerido), `clang` também é compatível.
-- Ambiente: Linux / bash (instruções testadas em ambientes POSIX).
+- **Linguagem:** C (padrões C89/C99 compatíveis conforme o código).
+- **Compilador:** GNU GCC (sugerido), `clang` também é compatível.
+- **Ambiente:** Linux / bash (instruções testadas em ambientes POSIX).
 
 ## 👤 Sobre o Desenvolvedor <a name="sobre-o-desenvolvedor"></a>
 
