@@ -1,0 +1,8 @@
+#include <stdio.h>
+
+int main(void) {
+
+    printf("\x4F\x6C\xC3\xA1\x2C\x20\x6D\x75\x6E\x64\x6F\x21\x0A");
+    
+    return 0;
+}
