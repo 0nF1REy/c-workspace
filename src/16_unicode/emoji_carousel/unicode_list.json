@@ -1,0 +1,14 @@
+[
+    { "id": 1,  "name": "Rosto Sorridente",         "codepoint": "U+1F600" },
+    { "id": 2,  "name": "Joinha",                   "codepoint": "U+1F44D" },
+    { "id": 3,  "name": "Coração Vermelho",         "codepoint": "U+2764"  },
+    { "id": 4,  "name": "Fogo",                     "codepoint": "U+1F525" },
+    { "id": 5,  "name": "Livro à Direita",          "codepoint": "U+1F56E" },
+    { "id": 6,  "name": "Rosto Pensativo",          "codepoint": "U+1F914" },
+    { "id": 7,  "name": "Rosto Chorando",           "codepoint": "U+1F622" },
+    { "id": 8,  "name": "Rosto Bravo",              "codepoint": "U+1F620" },
+    { "id": 9,  "name": "Estrela",                  "codepoint": "U+2B50"  },
+    { "id": 10, "name": "Café",                     "codepoint": "U+2615"  },
+    { "id": 11, "name": "Computador",               "codepoint": "U+1F4BB" },
+    { "id": 12, "name": "Pasta de Arquivos",        "codepoint": "U+1F4C1" }
+]

@@ -11,6 +11,7 @@ src/**/[^./]*
 # Do NOT ignore source code
 !src/**/*.c
 !src/**/*.h
+!src/**/*.json
 
 # ====================================
 # COMPILATION OUTPUT
