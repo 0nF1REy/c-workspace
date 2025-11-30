@@ -1,0 +1,5 @@
+Olá, este é um arquivo de teste.
+Ele contém várias linhas, palavras e alguns números: 123 456 789.
+
+Podemos usar este arquivo para verificar a contagem de palavras
+e o total de caracteres que o programa text_statistics calcula.

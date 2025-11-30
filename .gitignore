@@ -12,6 +12,7 @@ src/**/[^./]*
 !src/**/*.c
 !src/**/*.h
 !src/**/*.json
+!src/**/*.txt
 
 # ====================================
 # COMPILATION OUTPUT
