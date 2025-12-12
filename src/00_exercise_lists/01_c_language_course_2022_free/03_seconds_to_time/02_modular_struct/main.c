@@ -23,11 +23,11 @@ Tempo converter_segundos(int total_segundos) {
 int main(void) {
     int segundos_input;
 
-    printf("--- RELÓGIO DA SARAH (MODULAR) ---\n");
+    printf("--- RELÓGIO (MODULAR) ---\n");
     printf("Segundos cronometrados: ");
     scanf("%d", &segundos_input);
 
-    // Recebe a struct já pronta
+    // Recebimento da struct pronta
     Tempo resultado = converter_segundos(segundos_input);
 
     printf("\n[Resultado Final]\n");
