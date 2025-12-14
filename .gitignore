@@ -10,6 +10,7 @@ src/**/[^./]*
 
 # Do NOT ignore source code
 !src/**/*.c
+!src/**/*.n
 !src/**/*.h
 !src/**/*.json
 !src/**/*.txt
