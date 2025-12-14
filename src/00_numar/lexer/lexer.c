@@ -64,10 +64,9 @@ static Token lexer_number(Lexer *lexer) {
         advance(lexer);
     }
 
-    token.text[length] = '\0';  // Finaliza a string do número
+    token.text[length] = '\0';
     return token;
 }
-
 
 // -----------------------------------------------
 // Função para reconhecer identificadores (variáveis)
@@ -76,7 +75,6 @@ static Token lexer_identifier(Lexer *lexer) {
     Token token;
     token.line = lexer->line;
     token.column = lexer->column;
-    token.type = TOKEN_IDENTIFIER;
 
     int length = 0;
     while (isalnum(current_char(lexer)) || current_char(lexer) == '_') {
@@ -84,20 +82,24 @@ static Token lexer_identifier(Lexer *lexer) {
         advance(lexer);
     }
 
-    token.text[length] = '\0';  // Finaliza a string do identificador
+    token.text[length] = '\0';
+
+    token.type = lexer_keyword_type(token.text);
+
     return token;
 }
-
 
 // -----------------------------------------------
 // Função para reconhecer operadores
 // -----------------------------------------------
 static Token lexer_operator(Lexer *lexer) {
+    
     Token token;
     token.line = lexer->line;
     token.column = lexer->column;
 
     char c = current_char(lexer);
+
     if (c == '=') {
         token.type = TOKEN_ASSIGN;
         token.text[0] = '=';
