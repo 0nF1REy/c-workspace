@@ -1,3 +1,20 @@
+/*
+    O custo de um carro novo ao consumidor final é o preço de fábrica somado ao percentual
+    de lucro do distribuidor, acrescido dos impostos aplicados ao preço de fábrica. Faça um
+    programa que receba o preço de fábrica de um veículo, o percentual de lucro do distribuidor
+    e o percentual de impostos.
+    
+    Em cada item, crie uma função distinta para calcular e retornar:
+
+        a) o valor correspondente ao lucro do distribuidor;
+        b) o valor correspondente aos impostos;
+        c) o preço final do veículo.
+
+    Após criar cada uma das funções, desenvolva um algoritmo que declare e invoque cada
+    uma das funções, mostrando o lucro do distribuidor, os impostos e o valor final do
+    veículo.
+*/
+
 #include <stdio.h>
 
 float calcular_lucro_distribuidor(float preco_fabrica, float percentual) {
