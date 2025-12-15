@@ -5,14 +5,44 @@
 #include "parser/parser.h"
 #include "semantic/semantic.h"
 
-int main(void) {
+// -------------------------------------------------
+// Lê um arquivo inteiro para memória
+// -------------------------------------------------
+static char *read_file(const char *filename) {
+    FILE *file = fopen(filename, "r");
+    if (!file) {
+        perror("Erro ao abrir arquivo");
+        exit(1);
+    }
+
+    fseek(file, 0, SEEK_END);
+    long size = ftell(file);
+    rewind(file);
+
+    char *buffer = malloc(size + 1);
+    if (!buffer) {
+        perror("Erro de memória");
+        exit(1);
+    }
+
+    fread(buffer, 1, size, file);
+    buffer[size] = '\0';
+
+    fclose(file);
+    return buffer;
+}
+
+int main(int argc, char **argv) {
+
+    if (argc < 2) {
+        printf("Uso: numar <arquivo.n>\n");
+        return 1;
+    }
 
     // -----------------------------------
-    // Código fonte de teste (Numar)
+    // Lê código-fonte .n
     // -----------------------------------
-    const char *source =
-        "INTEGER :: x\n"
-        "x = 5 + 3\n";
+    char *source = read_file(argv[1]);
 
     // -----------------------------------
     // LEXER
@@ -27,7 +57,7 @@ int main(void) {
         tokens[token_count] = lexer_next_token(&lexer);
     } while (tokens[token_count++].type != TOKEN_EOF);
 
-    printf("✔ Lexer finished (%d tokens)\n", token_count);
+    printf("✔ Lexer OK (%d tokens)\n", token_count);
 
     // -----------------------------------
     // PARSER
@@ -35,16 +65,16 @@ int main(void) {
     Parser parser = parser_create(tokens);
     ASTNode *ast = parse_program(&parser);
 
-    printf("✔ Parser finished (AST created)\n");
+    printf("✔ Parser OK\n");
 
     // -----------------------------------
     // SEMANTIC
     // -----------------------------------
     semantic_analyze(ast);
 
-    printf("✔ Semantic analysis finished\n");
+    printf("✔ Semantic OK\n");
+    printf("✔ Numar pipeline finalizado\n");
 
-    printf("\n✔ Numar compilation pipeline executed successfully\n");
-
+    free(source);
     return 0;
 }
