@@ -1,3 +1,12 @@
+/*
+    Desenvolva um algoritmo que preencha uma matriz numérico de dimensões 3x3. Após
+    preencher todo a matriz, o usuário deve inserir uma chave de busca X. Caso exista algum
+    número igual a X, dentro da matriz, o algoritmo deve mostrar, na tela, os índices da linha
+    e da coluna da posição na qual na qual X foi encontrado pela primeira vez. Caso
+    contrário, o algoritmo deve se encerrar com uma única mensagem, dizendo "Chave não
+    encontrada.".
+*/
+
 #include <stdio.h>
 
 #define DIM 3
