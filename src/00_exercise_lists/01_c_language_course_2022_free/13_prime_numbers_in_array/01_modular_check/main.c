@@ -1,3 +1,8 @@
+/*
+    Faça um programa que carregue um vetor com nove elementos numéricos inteiros,
+    calcule e mostre os números primos e suas respectivas posições.
+*/
+
 #include <stdio.h>
 
 #define TAMANHO 9
