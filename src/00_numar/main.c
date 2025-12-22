@@ -4,6 +4,7 @@
 #include "lexer/lexer.h"
 #include "parser/parser.h"
 #include "semantic/semantic.h"
+#include "runtime/interpreter.h"
 
 // -------------------------------------------------
 // Lê um arquivo inteiro para memória
@@ -50,7 +51,8 @@ int main(int argc, char **argv) {
     Lexer lexer;
     lexer_init(&lexer, source);
 
-    Token tokens[256];
+    // Aumentei o buffer para 1024 para evitar overflow em testes maiores
+    Token tokens[1024]; 
     int token_count = 0;
 
     do {
@@ -71,10 +73,24 @@ int main(int argc, char **argv) {
     // SEMANTIC
     // -----------------------------------
     semantic_analyze(ast);
-
     printf("✔ Semantic OK\n");
+
+    // -----------------------------------
+    // RUNTIME (INTERPRETADOR)
+    // -----------------------------------
+    printf("-------------------------\n");
+    printf(">>> SAIDA DO PROGRAMA <<<\n");
+    
+    runtime_execute(ast);
+    
+    printf("\n-------------------------\n");
     printf("✔ Numar pipeline finalizado\n");
 
+    // -----------------------------------
+    // CLEANUP
+    // -----------------------------------
+    parser_free_ast(ast);
     free(source);
+    
     return 0;
 }
