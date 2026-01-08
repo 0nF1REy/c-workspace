@@ -1,25 +1,27 @@
 #include <stdio.h>
 #include <stdlib.h>
+
 struct node
 {
     int data;
     struct node *next;
 };
+
 struct node *f;
 struct node *R;
-
 
 int isEmpty()
 {
     if (R == NULL)
     {
-        printf("Queue is empty\n");
+        printf("Fila vazia\n");
         return 1;
     }
     else
-        printf("Queue is not empty\n");
+        printf("Fila nao esta vazia\n");
     return 0;
 }
+
 void ins()
 {
     struct node *ptr;
@@ -32,7 +34,7 @@ void ins()
     }
     else
     {
-        printf("Enter value:");
+        printf("Informe o valor:");
         scanf("%d", &item);
         ptr->data = item;
         if (f == NULL)
@@ -50,6 +52,7 @@ void ins()
         }
     }
 }
+
 void del()
 {
     struct node *ptr;
@@ -65,6 +68,7 @@ void del()
         free(ptr);
     }
 }
+
 void peek()
 {
     if (f == NULL)
@@ -74,9 +78,10 @@ void peek()
     }
     else
     {
-        printf("Peeked element is %d\n", f->data);
+        printf("Elemento consultado: %d\n", f->data);
     }
 }
+
 void display()
 {
     struct node *ptr;
@@ -84,11 +89,11 @@ void display()
     if (f == NULL)
     {
 
-        printf("\nEmpty queue");
+        printf("\nFila vazia");
     }
     else
     {
-        printf("Elements of Queue:");
+        printf("Elementos da Fila:");
         while (ptr != NULL)
         {
             printf(" %d", ptr->data);
@@ -97,13 +102,14 @@ void display()
         printf("\n");
     }
 }
+
 int assg7prog3()
 {
     int choice;
     while (1)
     {
-        printf("\n1.Insert an element\n2.Delete an element\n3.Peek\n4.Display the queue\n5.Check empty\n6.Exit\n");
-        printf("Enter your choice:");
+        printf("\n1.Inserir elemento\n2.Deletar elemento\n3.Consultar\n4.Exibir fila\n5.Verificar se vazio\n6.Sair\n");
+        printf("Informe a opcao:");
         scanf("%d", &choice);
         switch (choice)
         {
@@ -126,7 +132,7 @@ int assg7prog3()
             exit(1);
             break;
         default:
-            printf("\nEnter valid choice!!");
+            printf("\nOpcao invalida!!");
         }
     }
     return 0;

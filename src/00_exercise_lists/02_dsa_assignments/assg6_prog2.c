@@ -1,93 +1,93 @@
 #include <stdio.h>
 #include <stdlib.h>
- 
+
 struct node62
 {
     int info;
     struct node62 *ptr;
-}*top,*top1,*temp;
- 
+} *top, *top1, *temp;
+
 int count = 0;
 
 void create62()
 {
     top = NULL;
 }
- 
+
 void stack_count62()
 {
-    printf("\n No. of elements in stack : %d", count);
+    printf("\nNumero de elementos na pilha: %d", count);
 }
- 
+
 void push62(int data)
 {
     if (top == NULL)
     {
-        top =(struct node62 *)malloc(1*sizeof(struct node62));
+        top = (struct node62 *)malloc(1 * sizeof(struct node62));
         top->ptr = NULL;
         top->info = data;
     }
     else
     {
-        temp =(struct node62 *)malloc(1*sizeof(struct node62));
+        temp = (struct node62 *)malloc(1 * sizeof(struct node62));
         temp->ptr = top;
         temp->info = data;
         top = temp;
     }
     count++;
 }
- 
+
 void display62()
 {
     top1 = top;
- 
+
     if (top1 == NULL)
     {
-        printf("Stack is empty");
+        printf("Pilha vazia.");
         return;
     }
- 
+
     while (top1 != NULL)
     {
         printf("%d ", top1->info);
         top1 = top1->ptr;
     }
- }
- 
+}
+
 void pop62()
 {
     top1 = top;
- 
+
     if (top1 == NULL)
     {
-        printf("\n Error : Trying to pop from empty stack");
+        printf("\nErro: Tentando fazer pop de pilha vazia.");
         return;
     }
     else
         top1 = top1->ptr;
-    printf("\n Popped value : %d", top->info);
+    printf("\n Valor desempilhado: %d", top->info);
     free(top);
     top = top1;
     count--;
 }
- 
+
 int topelement62()
 {
-    return(top->info);
+    return (top->info);
 }
- 
+
 void empty62()
 {
     if (top == NULL)
-        printf("\n Stack is empty");
+        printf("\nPilha vazia.");
     else
-        printf("\n Stack is not empty with %d elements", count);
+        printf("\nPilha nao esta vazia com %d elementos.", count);
 }
- 
+
 void destroy62()
 {
     top1 = top;
- 
+
     while (top1 != NULL)
     {
         top1 = top->ptr;
@@ -97,35 +97,35 @@ void destroy62()
     }
     free(top1);
     top = NULL;
- 
-    printf("\n All stack elements destroyed");
+
+    printf("\nTodos os elementos da pilha foram destruidos.");
     count = 0;
 }
- 
+
 void assg6prog2()
 {
     int no, ch, e;
- 
-    printf("\n 1 - Push");
-    printf("\n 2 - Pop");
-    printf("\n 3 - Top");
-    printf("\n 4 - Empty");
-    printf("\n 5 - Exit");
-    printf("\n 6 - Dipslay");
-    printf("\n 7 - Stack Count");
-    printf("\n 8 - Destroy stack");
- 
+
+    printf("\n1 - Empilhar");
+    printf("\n2 - Desempilhar");
+    printf("\n3 - Topo");
+    printf("\n4 - Vazio");
+    printf("\n5 - Sair");
+    printf("\n6 - Exibir");
+    printf("\n7 - Contagem da Pilha");
+    printf("\n8 - Destruir Pilha");
+
     create62();
- 
+
     while (1)
     {
-        printf("\n Enter choice : ");
+        printf("\n Informe a opcao: ");
         scanf("%d", &ch);
- 
+
         switch (ch)
         {
         case 1:
-            printf("Enter data : ");
+            printf("Informe os dados: ");
             scanf("%d", &no);
             push62(no);
             break;
@@ -134,11 +134,11 @@ void assg6prog2()
             break;
         case 3:
             if (top == NULL)
-                printf("No elements in stack");
+                printf("Nenhum elemento na pilha.");
             else
             {
                 e = topelement62();
-                printf("\n Top element : %d", e);
+                printf("\n Elemento no topo: %d", e);
             }
             break;
         case 4:
@@ -155,10 +155,9 @@ void assg6prog2()
         case 8:
             destroy62();
             break;
-        default :
-            printf(" Wrong choice, Please enter correct choice  ");
+        default:
+            printf("Escolha incorreta. Informe a opcao correta.");
             break;
         }
     }
 }
- 

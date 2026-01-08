@@ -1,26 +1,28 @@
-//Souvik Pal 2029032
+// Q3: Programa para buscar um elemento em um vetor de n numeros.
 
-// Q3 WAP to search an element in an array of n numbers.
-//#include <stdio.h>
-void assg1prog3(){
-    int a[10], i, x, y,n;
-    printf("\nEnter the number of elements : ");
+void assg1prog3()
+{
+    int a[10], i, x, n;
+    int found = 0;
+    printf("\nInforme a quantidade de elementos: ");
     scanf("%d", &n);
-    printf("\nInput the array elements : ");
+    printf("\nDigite os elementos do vetor: ");
     for (i = 0; i < n; ++i)
-    scanf("%d", &a[i]);
-    printf("No. you wanna search :");
+        scanf("%d", &a[i]);
+    printf("Numero que deseja buscar: ");
     scanf("%d", &x);
-    for (i = 0; i < sizeof(a) / 4; i++)
+    for (i = 0; i < n; i++)
     {
         if (a[i] == x)
         {
-            printf(" %d is present in Index No. %d", x, i);
+            printf(" %d esta presente no indice %d\n", x, i);
+            found = 1;
             break;
         }
-        else{
-            printf("The number is not present in the array\n");
-            break;
-        }
+    }
+
+    if (found == 0)
+    {
+        printf("O numero %d nao esta presente no vetor\n", x);
     }
 }

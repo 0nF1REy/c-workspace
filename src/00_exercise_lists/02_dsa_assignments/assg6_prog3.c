@@ -1,18 +1,21 @@
-// C program to convert infix expression to postfix
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
+// Programa em C para converter expressão infixa para posfixa
 
-// Stack type
+// Tipo Pilha
 struct Stack
 {
 	int top;
 	unsigned capacity;
-	int* array;
+	int *array;
 };
 
-// Stack Operations
-struct Stack* createStack( unsigned capacity )
+// Operacoes de Pilha
+struct Stack *createStack(unsigned capacity)
 {
-	struct Stack* stack = (struct Stack*)
+	struct Stack *stack = (struct Stack *)
 		malloc(sizeof(struct Stack));
 
 	if (!stack)
@@ -21,43 +24,45 @@ struct Stack* createStack( unsigned capacity )
 	stack->top = -1;
 	stack->capacity = capacity;
 
-	stack->array = (int*) malloc(stack->capacity *
-								sizeof(int));
+	stack->array = (int *)malloc(stack->capacity *
+								 sizeof(int));
 
 	return stack;
 }
-int qqq(struct Stack* stack)
+
+int qqq(struct Stack *stack)
 {
-	return stack->top == -1 ;
+	return stack->top == -1;
 }
-char peek(struct Stack* stack)
+
+char peek(struct Stack *stack)
 {
 	return stack->array[stack->top];
 }
-char ooo(struct Stack* stack)
+
+char ooo(struct Stack *stack)
 {
 	if (!qqq(stack))
-		return stack->array[stack->top--] ;
+		return stack->array[stack->top--];
 	return '$';
 }
-void eee(struct Stack* stack, char op)
+
+void eee(struct Stack *stack, char op)
 {
 	stack->array[++stack->top] = op;
 }
-
-
-// A utility function to check if
-// the given character is operand
+// Função utilitária para verificar se
+// o caractere dado é operando
 int isOperand(char ch)
 {
 	return (ch >= 'a' && ch <= 'z') ||
-		(ch >= 'A' && ch <= 'Z');
+		   (ch >= 'A' && ch <= 'Z');
 }
 
-// A utility function to return
-// precedence of a given operator
-// Higher returned value means
-// higher precedence
+// Função utilitária para retornar
+// precedência de um dado operador
+// Valor de retorno maior significa
+// maior precedência
 int Prec(char ch)
 {
 	switch (ch)
@@ -76,73 +81,72 @@ int Prec(char ch)
 	return -1;
 }
 
-
-// The main function that
-// converts given infix expression
-// to postfix expression.
-int infixToPostfix(char* exp)
+// A função principal que
+// converte a expressão infixa dada
+// para expressão posfixa.
+int infixToPostfix(char *exp)
 {
 	int i, k;
 
-	// Create a stack of capacity
-	// equal to expression size
-	struct Stack* stack = createStack(strlen(exp));
-	if(!stack) // See if stack was created successfully
-		return -1 ;
+	// Cria uma pilha com capacidade
+	// igual ao tamanho da expressão
+	struct Stack *stack = createStack(strlen(exp));
+	if (!stack) // Verifica se a pilha foi criada com sucesso
+		return -1;
 
 	for (i = 0, k = -1; exp[i]; ++i)
 	{
-		
-		// If the scanned character is
-		// an operand, add it to output.
+
+		// Se o caractere escaneado é
+		// um operando, adiciona à saída.
 		if (isOperand(exp[i]))
 			exp[++k] = exp[i];
-		
-		// If the scanned character is an
-		// ‘(‘, eee it to the stack.
+
+		// Se o caractere escaneado é um
+		// '(', empilha na pilha.
 		else if (exp[i] == '(')
 			eee(stack, exp[i]);
-		
-		// If the scanned character is an ‘)’,
-		// ooo and output from the stack
-		// until an ‘(‘ is encountered.
+
+		// Se o caractere escaneado é um ')',
+		// desempilha e envia para saída da pilha
+		// até que um '(' seja encontrado.
 		else if (exp[i] == ')')
 		{
 			while (!qqq(stack) && peek(stack) != '(')
 				exp[++k] = ooo(stack);
 			if (!qqq(stack) && peek(stack) != '(')
-				return -1; // invalid expression			
+				return -1; // expressão inválida
 			else
 				ooo(stack);
 		}
-		else // an operator is encountered
+		else // um operador é encontrado
 		{
 			while (!qqq(stack) &&
-				Prec(exp[i]) <= Prec(peek(stack)))
+				   Prec(exp[i]) <= Prec(peek(stack)))
 				exp[++k] = ooo(stack);
 			eee(stack, exp[i]);
 		}
-
 	}
 
-	// ooo all the operators from the stack
+	// Desempilha todos os operadores da pilha
 	while (!qqq(stack))
-		exp[++k] = ooo(stack );
+		exp[++k] = ooo(stack);
 
 	exp[++k] = '\0';
-	printf( "%s", exp );
+	printf("Expressao posfixa: %s", exp);
 }
 
-// Driver program to test above functions
+// Programa principal para testar as funções acima
 int intopo()
-{   
-    int cv;
-    printf( "Enter Size : " );
-    scanf("%d",&cv);
-    char exp[cv];
-    printf( "Enter Expression : " );
-    scanf("%s",exp);
+{
+	int cv;
+	printf("Informe o tamanho: ");
+	scanf("%d", &cv);
+	char exp[cv];
+	printf("Informe a expressao: ");
+	scanf("%s", exp);
 	// char exp[] = "a+b*(c^d-e)^(f+g*h)-i";
 	infixToPostfix(exp);
+
 	return 0;
 }

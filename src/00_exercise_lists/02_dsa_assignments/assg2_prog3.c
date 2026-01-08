@@ -1,32 +1,36 @@
-//WAP to sort an array of n numbers
+// Programa para ordenar um vetor de n numeros
 
 #include <stdio.h>
-    int assg2prog3()
+
+int assg2prog3()
+{
+    int i, j, a, n, number[30];
+
+    printf("Informe o valor de N \n");
+    scanf("%d", &n);
+
+    printf("Digite os numeros \n");
+    for (i = 0; i < n; ++i)
+        scanf("%d", &number[i]);
+
+    for (i = 0; i < n; ++i)
     {
- 
-        int i, j, a, n, number[30];
-        printf("Enter the value of N \n");
-        scanf("%d", &n);
-        printf("Enter the numbers \n");
-        for (i = 0; i < n; ++i)
-            scanf("%d", &number[i]);
-        for (i = 0; i < n; ++i) 
+        for (j = i + 1; j < n; ++j)
         {
-            for (j = i + 1; j < n; ++j)
+            if (number[i] > number[j])
             {
-                if (number[i] > number[j]) 
-                {
-                    a =  number[i];
-                    number[i] = number[j];
-                    number[j] = a;
-                }
+                a = number[i];
+                number[i] = number[j];
+                number[j] = a;
             }
         }
-        printf("The numbers arranged in ascending order are given below \n");
-        for (i = 0; i < n; ++i)
-            printf("%d\n", number[i]);
-            printf("The second smallest number is %d", number[1]);
-            printf("The second largest number is %d", number[n-2]);
-            return 0;
- 
     }
+    
+    printf("Os numeros em ordem crescente sao:\n");
+    for (i = 0; i < n; ++i)
+        printf("%d\n", number[i]);
+    printf("O segundo menor numero e %d", number[1]);
+    printf("O segundo maior numero e %d", number[n - 2]);
+    
+    return 0;
+}

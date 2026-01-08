@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #define MAX 10
+
 int cqueue_arr[MAX];
 int front = -1;
 int rear = -1;
@@ -17,7 +18,7 @@ void insert(int item)
 {
     if (isFull())
     {
-        printf("\nQueue Overflow\n");
+        printf("\nEstouro de Fila\n");
         return;
     }
     if (front == -1)
@@ -29,6 +30,7 @@ void insert(int item)
         rear = rear + 1;
     cqueue_arr[rear] = item;
 }
+
 int isEmpty()
 {
     if (front == -1)
@@ -46,15 +48,16 @@ int peek()
     }
     return cqueue_arr[front];
 }
+
 void display()
 {
     int i;
     if (isEmpty())
     {
-        printf("\nQueue is empty\n");
+        printf("\nFila vazia\n");
         return;
     }
-    printf("\nQueue elements :\n");
+    printf("\nElementos da Fila:\n");
     i = front;
     if (front <= rear)
     {
@@ -71,6 +74,7 @@ void display()
     }
     printf("\n");
 }
+
 int del()
 {
     int item;
@@ -81,10 +85,10 @@ int del()
     }
     item = cqueue_arr[front];
     if (front == rear)
-        {
-            front = -1;
-            rear = -1;
-        }
+    {
+        front = -1;
+        rear = -1;
+    }
     else if (front == MAX - 1)
         front = 0;
     else
@@ -97,25 +101,25 @@ int assg7prog5()
     int choice, item;
     while (1)
     {
-        printf("\n1.Insert\n");
-        printf("2.Delete\n");
-        printf("3.Peek\n");
-        printf("4.Display\n");
+        printf("\n1.Inserir\n");
+        printf("2.Deletar\n");
+        printf("3.Consultar\n");
+        printf("4.Exibir\n");
         printf("5.Quit\n");
-        printf("Enter your choice : ");
+        printf("Informe a opcao: ");
         scanf("%d", &choice);
         switch (choice)
         {
         case 1:
-            printf("Input the element for insertion : ");
+            printf("Informe o elemento para insercao: ");
             scanf("%d", &item);
             insert(item);
             break;
         case 2:
-            printf("\nElement deleted is : %d\n", del());
+            printf("\nElemento deletado: %d\n", del());
             break;
         case 3:
-            printf("\nElement at the front is  : %d\n", peek());
+            printf("\nElemento na frente: %d\n", peek());
             break;
         case 4:
             display();
@@ -123,7 +127,7 @@ int assg7prog5()
         case 5:
             exit(1);
         default:
-            printf("\nWrong choice\n");
+            printf("\nEscolha incorreta\n");
         }
     }
     return 0;

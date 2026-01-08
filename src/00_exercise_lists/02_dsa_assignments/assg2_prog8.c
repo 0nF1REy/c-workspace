@@ -1,30 +1,30 @@
-#include<stdio.h>
-int assg2prog8(){
-    int n,i;
-    printf("Enter the number of elements to be added:\t");
-    scanf("%d",&n);
+#include <stdio.h>
+
+int assg2prog8()
+{
+    int n, i;
+    printf("Informe a quantidade de elementos a adicionar:\t");
+    scanf("%d", &n);
     int arr[n];
-    printf("Enter the array elements:\n");
-    for (i = 0; i <n; i++)
+    printf("Digite os elementos do vetor:\n");
+    for (i = 0; i < n; i++)
     {
-        /* code */
-        scanf("%d",&arr[i]);
+
+        scanf("%d", &arr[i]);
     }
-    int lower,upper;
-    printf("Enter the upper and lower bound(both inclusive):\t");
-    scanf("%d%d",&lower,&upper);
-    int count=0;
-      for (i = 0; i <n; i++)
+    int lower, upper;
+    printf("Informe o limite inferior e superior (ambos inclusivos):\t");
+    scanf("%d%d", &lower, &upper);
+    int count = 0;
+    for (i = 0; i < n; i++)
     {
-        /* code */
-        if (i>lower && i<upper)
+
+        if (arr[i] >= lower && arr[i] <= upper)
         {
-            /* code */
             count++;
         }
-        
     }
-    printf("There are %d number of elements between %d and %d in the array",count,lower,upper);
+    printf("Existem %d elementos entre %d e %d no vetor.\n", count, lower, upper);
+
     return 0;
-    
 }

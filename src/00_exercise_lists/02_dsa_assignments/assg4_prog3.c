@@ -1,10 +1,11 @@
-#include<stdio.h>
+#include <stdio.h>
 
 struct node43
 {
     int data;
     struct node43 *next;
 };
+
 void display43(struct node43 *head)
 {
     struct node43 *ptr;
@@ -15,13 +16,14 @@ void display43(struct node43 *head)
         ptr = ptr->next;
     }
 }
-void delete43 (struct node43 **head, int pos)
+
+void delete43(struct node43 **head, int pos)
 {
     struct node43 *current = *head;
     struct node43 *previous = *head;
     if (*head == NULL)
     {
-        printf("List is already empty\n");
+        printf("Lista ja esta vazia\n");
     }
     else if (pos == 1)
     {
@@ -41,42 +43,42 @@ void delete43 (struct node43 **head, int pos)
 
 void search43(struct node43 **head)
 {
-    int item, i = 1,flag=0;
+    int item, i = 1, flag = 0;
     struct node43 *ptr, *temp;
     ptr = *head;
     if (ptr == NULL)
     {
-        printf("Empty List\n");
+        printf("Lista vazia\n");
     }
     else
     {
-        printf("\nEnter item which you want to search: ");
+        printf("\nInforme o item que deseja buscar: ");
         scanf("%d", &item);
         while (ptr != NULL)
         {
             if (ptr->data == item)
             {
-                printf("Item found at location %d\n", i);
-                delete43 (head, i);
+                printf("Item encontrado na posicao %d\n", i);
+                delete43(head, i);
                 temp = ptr;
                 temp->data = item;
                 temp->next = NULL;
                 temp->next = *head;
                 *head = ptr;
-                flag=0;
+                flag = 0;
                 break;
             }
             else
             {
-                flag=1;
+                flag = 1;
             }
             i++;
             ptr = ptr->next;
         }
-        
     }
-    if(flag==1){
-        printf("Item not found\n");
+    if (flag == 1)
+    {
+        printf("Item nao encontrado\n");
     }
 }
 
@@ -104,6 +106,7 @@ void insert43(struct node43 **head, int val, int pos)
         ptr->next = temp;
     }
 }
+
 int assg4prog3()
 {
     struct node43 *head = NULL;
@@ -116,5 +119,6 @@ int assg4prog3()
     display43(head);
     search43(&head);
     display43(head);
+
     return 0;
 }

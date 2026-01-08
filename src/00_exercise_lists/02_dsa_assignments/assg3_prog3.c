@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct node33 
+struct node33
 {
-    int num;                        //Data of the node
-    struct node33 *nextptr;           //Address of the next node
-}*stnode;
+    int num;                // Dados do no
+    struct node33 *nextptr; // Endereco do proximo no
+} *stnode;
 
 void createNodeList33(int n)
 {
@@ -13,56 +13,57 @@ void createNodeList33(int n)
     int num, i;
     stnode = (struct node33 *)malloc(sizeof(struct node33));
 
-    if(stnode == NULL) //check whether the fnnode is NULL and if so no memory allocation
+    if (stnode == NULL) // Verifica se fnnode e NULL e se nao ha alocacao de memoria
     {
-        printf(" Memory can not be allocated.");
+        printf(" Nao foi possivel alocar memoria.");
     }
     else
     {
-// reads data for the node through keyboard
+        // Le dados para o no pelo teclado
 
-        printf(" Input data for node 1 : ");
+        printf(" Digite os dados para o no 1: ");
         scanf("%d", &num);
-        stnode->num = num;      
-        stnode->nextptr = NULL; // links the address field to NULL
+        stnode->num = num;
+        stnode->nextptr = NULL; // Liga o campo de endereco a NULL
         tmp = stnode;
-// Creating n nodes and adding to linked list
-        for(i=2; i<=n; i++)
+        // Criando n nos e adicionando a lista encadeada
+        for (i = 2; i <= n; i++)
         {
             fnNode = (struct node33 *)malloc(sizeof(struct node33));
-            if(fnNode == NULL)
+            if (fnNode == NULL)
             {
-                printf(" Memory can not be allocated.");
+                printf(" Nao foi possivel alocar memoria.");
                 break;
             }
             else
             {
-                printf(" Input data for node %d : ", i);
+                printf(" Digite os dados para o no %d: ", i);
                 scanf(" %d", &num);
- 
-                fnNode->num = num;      // links the num field of fnNode with num
-                fnNode->nextptr = NULL; // links the address field of fnNode with NULL
- 
-                tmp->nextptr = fnNode; // links previous node i.e. tmp to the fnNode
-                tmp = tmp->nextptr; 
+
+                fnNode->num = num;      // liga o campo num de fnNode ao valor num
+                fnNode->nextptr = NULL; // liga o campo de endereco de fnNode a NULL
+
+                tmp->nextptr = fnNode; // liga o no anterior (tmp) ao fnNode
+                tmp = tmp->nextptr;
             }
         }
     }
 }
+
 void displayList33()
 {
     struct node33 *tmp;
-    if(stnode == NULL)
+    if (stnode == NULL)
     {
-        printf(" List is empty.");
+        printf("Lista vazia.");
     }
     else
     {
         tmp = stnode;
-        while(tmp != NULL)
+        while (tmp != NULL)
         {
-            printf(" Data = %d\n", tmp->num);       // prints the data of current node
-            tmp = tmp->nextptr;                     // advances the position of current node
+            printf(" Dados = %d\n", tmp->num); // Imprime os dados do no atual
+            tmp = tmp->nextptr;                // Avanca a posicao do no atual
         }
     }
 }
@@ -70,13 +71,14 @@ void displayList33()
 int assg3prog3()
 {
     int n;
-		printf("\n\n Linked List : To create and display Singly Linked List :\n");
-		printf("-------------------------------------------------------------\n");
-		
-    printf(" Input the number of nodes : ");
+    printf("\n\n Lista Encadeada: Criar e exibir Lista Simplesmente Encadeada\n");
+    printf("-------------------------------------------------------------\n");
+
+    printf(" Informe a quantidade de nos: ");
     scanf("%d", &n);
     createNodeList33(n);
-    printf("\n Data entered in the list : \n");
+    printf("\n Dados inseridos na lista:\n");
     displayList33();
+
     return 0;
 }

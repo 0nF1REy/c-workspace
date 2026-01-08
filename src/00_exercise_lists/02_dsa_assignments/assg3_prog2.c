@@ -1,33 +1,37 @@
 #include <stdio.h>
 
-struct Distance {
+struct Distance
+{
    int km;
    int m;
 } d1, d2, result;
 
-int assg3prog2() {
-   // take first distance input
-   printf("Enter 1st distance\n");
-   printf("Enter in km: ");
+int assg3prog2()
+{
+   // Entrada da primeira distancia
+   printf("Digite a 1a distancia\n");
+   printf("Digite em km: ");
    scanf("%d", &d1.km);
-   printf("Enter in m: ");
+   printf("Digite em metros: ");
    scanf("%d", &d1.m);
- 
-   // take second distance input
-   printf("\nEnter 2nd distance\n");
-   printf("Enter in km: ");
+
+   // Entrada da segunda distancia
+   printf("\nDigite a 2a distancia\n");
+   printf("Digite em km: ");
    scanf("%d", &d2.km);
-   printf("Enter in m: ");
+   printf("Digite em metros: ");
    scanf("%d", &d2.m);
-   
-   // adding distances
+
+   // Somando as distancias
    result.km = d1.km + d2.km;
    result.m = d1.m + d2.m;
 
-   while (result.m >= 1000) {
+   while (result.m >= 1000)
+   {
       result.m = result.m - 1000;
       ++result.km;
    }
-   printf("\nSum of distances = %d km and %d m ", result.km, result.m);
+   printf("\nSoma das distancias = %d km e %d m ", result.km, result.m);
+
    return 0;
 }

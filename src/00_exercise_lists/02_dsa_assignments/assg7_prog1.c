@@ -1,5 +1,6 @@
 #include <stdio.h>
 #define MAX71 6
+
 typedef struct
 {
     int data[MAX71];
@@ -16,6 +17,7 @@ int push(STACK *s, int v)
     s->data[s->top] = v;
     return 0;
 }
+
 int pop(STACK *s, int *v)
 {
     if (s->top == -1)
@@ -55,6 +57,7 @@ void insSort(STACK *s, int v)
         }
     }
 }
+
 void sort(STACK *s)
 {
     if (!isEmpty(*s))
@@ -70,6 +73,7 @@ void init(STACK *s)
 {
     s->top = -1;
 }
+
 int peekLow(STACK *s)
 {
     if (s->top == -1)
@@ -90,6 +94,7 @@ int peekLow(STACK *s)
     }
     return min;
 }
+
 int peekHigh(STACK *s)
 {
     if (s->top == -1)
@@ -110,6 +115,7 @@ int peekHigh(STACK *s)
     }
     return max;
 }
+
 int peekMiddle(STACK *s)
 {
     int mid, v;
@@ -131,6 +137,7 @@ int peekMiddle(STACK *s)
         }
     }
 }
+
 int assg7prog1()
 {
     int b;
@@ -143,10 +150,11 @@ int assg7prog1()
     k = push(&s1, 15);
     k = push(&s1, 23);
     int p = peekMiddle(&s1);
-    printf("The middle peeked element is %d\n", p);
-     int n = peekHigh(&s1);
-    printf("The largest peeked element is %d\n", n);
+    printf("O elemento do meio consultado e: %d\n", p);
+    int n = peekHigh(&s1);
+    printf("O maior elemento consultado e: %d\n", n);
     int m = peekLow(&s1);
-    printf("The smallest peeked element is %d\n", m);
+    printf("O menor elemento consultado e: %d\n", m);
+
     return 0;
 }

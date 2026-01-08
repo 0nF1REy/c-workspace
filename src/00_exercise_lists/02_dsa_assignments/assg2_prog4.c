@@ -4,17 +4,17 @@ void assg2prog4()
 {
     int a[30], b[30], i, n, j, k, temp, c = 0;
 
-    printf("Enter size of the array (max 30): ");
+    printf("Informe o tamanho do vetor (max 30): ");
     scanf("%d", &n);
 
     // Proteção simples para não estourar o limite do array
     if (n > 30)
     {
-        printf("Error: Max size is 30.\n");
+        printf("Erro: tamanho maximo e 30.\n");
         return;
     }
 
-    printf("Enter elements in array: ");
+    printf("Digite os elementos do vetor: ");
     for (i = 0; i < n; i++)
     {
         scanf("%d", &a[i]);
@@ -53,7 +53,7 @@ void assg2prog4()
         }
     }
 
-    printf("\nArray after sorting even and odd elements separately:\n");
+    printf("\nVetor apos ordenar os elementos pares e impares separadamente:\n");
 
     for (i = 0; i < n; i++)
     {

@@ -1,21 +1,22 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 #define MAX 10
 
 int queue_arr[MAX];
-int rear=-1;
-int front=-1;
+int rear = -1;
+int front = -1;
 
 int isFull()
 {
-        if( rear==MAX-1 )
+        if (rear == MAX - 1)
                 return 1;
         else
                 return 0;
 }
+
 int isEmpty()
 {
-        if( front==-1 || front==rear+1 )
+        if (front == -1 || front == rear + 1)
                 return 1;
         else
                 return 0;
@@ -23,33 +24,33 @@ int isEmpty()
 
 void insert(int item)
 {
-        if( isFull() )
+        if (isFull())
         {
-                printf("\nQueue Overflow\n");
+                printf("\nEstouro de Fila\n");
                 return;
         }
-        if( front == -1 )
-                front=0;
-        rear=rear+1;
-        queue_arr[rear]=item ;
+        if (front == -1)
+                front = 0;
+        rear = rear + 1;
+        queue_arr[rear] = item;
 }
 
 int del()
 {
         int item;
-        if( isEmpty() )
+        if (isEmpty())
         {
                 printf("\nQueue Underflow\n");
                 exit(1);
         }
-        item=queue_arr[front];
-        front=front+1;
+        item = queue_arr[front];
+        front = front + 1;
         return item;
 }
 
 int peek()
 {
-        if( isEmpty() )
+        if (isEmpty())
         {
                 printf("\nQueue Underflow\n");
                 exit(1);
@@ -57,50 +58,46 @@ int peek()
         return queue_arr[front];
 }
 
-
-
-
-
 void display()
 {
         int i;
-        if ( isEmpty() )
+        if (isEmpty())
         {
-                printf("\nQueue is empty\n");
+                printf("\nFila vazia\n");
                 return;
         }
-        printf("\nQueue is :\n\n");
-        for(i=front;i<=rear;i++)
-                printf("%d  ",queue_arr[i]);
+        printf("\nFila:\n\n");
+        for (i = front; i <= rear; i++)
+                printf("%d  ", queue_arr[i]);
         printf("\n\n");
 }
 
 int assg7prog2()
 {
-        int choice,item;
-        while(1)
+        int choice, item;
+        while (1)
         {
-                printf("\n1.Insert\n");
-                printf("2.Delete\n");
-                printf("3.Display element at the front\n");
-                printf("4.Display all elements of the queue\n");
+                printf("\n1.Inserir\n");
+                printf("2.Deletar\n");
+                printf("3.Exibir elemento na frente\n");
+                printf("4.Exibir todos os elementos da fila\n");
                 printf("5.Quit\n");
-                printf("\nEnter your choice : ");
-                scanf("%d",&choice);
+                printf("\nInforme a opcao: ");
+                scanf("%d", &choice);
 
-                switch(choice)
+                switch (choice)
                 {
                 case 1:
-                        printf("\nInput the element for adding in queue : ");
-                        scanf("%d",&item);
+                        printf("\nInforme o elemento para adicionar na fila: ");
+                        scanf("%d", &item);
                         insert(item);
                         break;
                 case 2:
-                        item=del();
-                        printf("\nDeleted element is  %d\n",item);
+                        item = del();
+                        printf("\nElemento deletado: %d\n", item);
                         break;
                 case 3:
-                        printf("\nElement at the front is %d\n",peek());
+                        printf("\nElemento na frente: %d\n", peek());
                         break;
                 case 4:
                         display();
@@ -108,10 +105,9 @@ int assg7prog2()
                 case 5:
                         exit(1);
                 default:
-                        printf("\nWrong choice\n");
+                        printf("\nEscolha incorreta\n");
                 }
         }
 
         return 0;
-
 }

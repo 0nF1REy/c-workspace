@@ -3,15 +3,18 @@
 #define MAXSIZE 7
 #define TRUE 1
 #define FALSE 0
+
 struct Stack
 {
     int top;
     int array[MAXSIZE];
 } st;
+
 void initialize()
 {
     st.top = -1;
 }
+
 int isFull()
 {
     if (st.top >= MAXSIZE - 1)
@@ -19,6 +22,7 @@ int isFull()
     else
         return FALSE;
 }
+
 int isEmpty()
 {
     if (st.top == -1)
@@ -26,10 +30,11 @@ int isEmpty()
     else
         return FALSE;
 }
+
 void push(int num)
 {
     if (isFull())
-        printf("Stack is Full...\n");
+        printf("Pilha cheia...\n");
     else
     {
         st.array[st.top + 1] = num;
@@ -40,7 +45,7 @@ void push(int num)
 int pop()
 {
     if (isEmpty())
-        printf("Stack is Empty...\n");
+        printf("Pilha vazia...\n");
     else
     {
         st.top = st.top - 1;
@@ -58,6 +63,7 @@ void printStack()
         push(temp);
     }
 }
+
 void insertAtBottom(int item)
 {
     if (isEmpty())
@@ -84,6 +90,7 @@ void reverse()
         insertAtBottom(top);
     }
 }
+
 int getSize()
 {
     return st.top + 1;
@@ -97,10 +104,10 @@ int assg6prog6()
     push(3);
     push(4);
     push(5);
-    printf("Original Stack\n");
+    printf("Pilha Original\n");
     printStack();
     reverse();
-    printf("\nReversed Stack\n");
+    printf("\nPilha Invertida\n");
     printStack();
 
     return 0;

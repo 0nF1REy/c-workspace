@@ -1,14 +1,16 @@
-//WAP to determine whether the given matrix is a lower triangular or upper triangular or tri-diagonal matrix.
 #include <stdio.h>
+
+// Programa para determinar se a matriz dada e triangular inferior, triangular superior ou tri-diagonal.
+
 int assg9prog6()
 {
 	int n;
-	printf("Enter size of matrix:");
+	printf("Informe o tamanho da matriz:");
 	scanf("%d", &n);
 	int flag1 = 0, flag2 = 0, flag3 = 0;
 	int mat[n][n];
 	int i, j;
-	printf("Enter elements:\n");
+	printf("Informe os elementos:\n");
 	for (i = 0; i < n; i++)
 	{
 		for (j = 0; j < n; j++)
@@ -28,6 +30,7 @@ int assg9prog6()
 			}
 		}
 	}
+
 	for (i = 0; i < n - 1; i++)
 	{
 		for (j = i + 1; j < n; j++)
@@ -42,11 +45,13 @@ int assg9prog6()
 			}
 		}
 	}
+
 	if (flag1 == 1)
-		printf("Upper Triangular Matrix");
+		printf("Matriz Triangular Superior");
 	else if (flag2 == 1)
-		printf("Lower Triangular Matrix");
+		printf("Matriz Triangular Inferior");
 	else
-		printf("Tri-diagonal matrix");
+		printf("Matriz tri-diagonal");
+
 	return 0;
 }
